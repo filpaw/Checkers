@@ -55,6 +55,7 @@ public class Checker extends Circle {
 					Image img = new Image("/korona.jpg");
 					setFill(new ImagePattern(img));
 				}
+				setOpacity(1.0);
 			});
 		}
 
@@ -84,6 +85,7 @@ public class Checker extends Circle {
 					Image img = new Image("/korona2.jpg");
 					setFill(new ImagePattern(img));
 				}
+				setOpacity(1.0);
 			});
 		}
 	}
@@ -102,7 +104,6 @@ public class Checker extends Circle {
 	private void tryMove() {
 		if (Game.MoveResult(oldX, oldY, newX, newY, isKing, this.checkerType) == MoveType.NORMAL) {
 			GameView.changeChecker(oldX, oldY, newX, newY, false);
-			// GameView.removeChecker(newX, newY);
 			App.connection.send(oldX, oldY, newX, newY, "NORMAL");
 		} else if (Game.MoveResult(oldX, oldY, newX, newY, isKing, this.checkerType) == MoveType.KILL1) {
 			GameView.changeChecker(oldX, oldY, newX, newY, false);
